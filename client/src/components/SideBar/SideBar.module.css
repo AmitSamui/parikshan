@@ -1,0 +1,69 @@
+.sideBarContainer {
+  width: 20%;
+  height: 100%;
+  background-color: var(--primary);
+  color: var(--secondary);
+  padding: 1.2rem 1.2rem;
+}
+
+.headingDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading {
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: var(--text);
+  cursor: pointer;
+}
+
+.icon{
+   transition: 0.2s ease-in;
+    box-sizing: content-box;
+    padding: 0.8rem;
+    border-radius: 50%;
+}
+
+.icon:hover{
+    background-color: rgba(255, 255, 255, 0.067);
+}
+
+.sidebarOptions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.options {
+  font-size: var(--text-xsm);
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.8rem 0.5rem;
+  color: var(--semi-secondary);
+  border-radius: 6px;
+  transition: 0.2s ease-in;
+  margin-bottom: 0.5rem;
+}
+.options.selected {
+  color: var(--secondary);
+  background-color: rgba(255, 255, 255, 0.207);
+}
+.options:hover {
+  background-color: rgba(255, 255, 255, 0.067);
+  color: var(--secondary);
+}
+
+.options.selected:hover {
+  color: var(--secondary);
+  background-color: rgba(255, 255, 255, 0.207);
+}
+
+
