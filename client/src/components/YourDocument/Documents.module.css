@@ -1,0 +1,25 @@
+.dashboardContainer {
+  width: 80%;
+  height: 100%;
+  background-color: var(--white);
+  color: var(--text-dark);
+  
+}
+
+.heading {
+  font-size: var(--text-md);
+  font-weight: 700;
+  padding: 1.2rem 2.5rem;
+  background-color: var(--secondary);
+}
+
+.documentsContainer {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  padding: 2.5rem 2.5rem;
+}

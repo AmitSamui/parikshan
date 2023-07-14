@@ -2,6 +2,7 @@
 
 html {
   font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
 }
 
 :root {
@@ -17,8 +18,12 @@ html {
   --sm: 576px;
 
   --primary: #1D5764;
-  --secondary: #D2DDE0;
+  --secondary: #ececec;
   --semi-secondary: #8AA7AE;
+  --card-background : #f1f1f1;
+  --text-color: #1D5764;
+  --text-dark: #0c3a45;
+
   --white: #FEFEFE;
   --background: #FEFEFE;
   --success: #5cdd2c;

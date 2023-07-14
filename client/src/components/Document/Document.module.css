@@ -1,0 +1,71 @@
+.documentContainer {
+  background-color: var(--card-background);
+  color: var(--primary);
+  width: 100%;
+  height: fit-content;
+  padding:1rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.096); */
+  margin-bottom: 2rem;
+}
+
+.documentLeft {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.documentLeftTop {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.documentHeader {
+  font-size: var(--text);
+  font-weight: 600;
+  margin-left: 1.2rem;
+}
+.documentDetails {
+  display: flex;
+  font-size: var(--text-xsm);
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  margin: 1.5rem 0rem 0.8rem 0rem;
+  padding-left: 0.5rem;
+}
+.information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.infoTitle {
+  color: var(--semi-secondary);
+}
+
+.info {
+  margin-left: 1rem;
+}
+
+button {
+  padding: 0.8rem 2.3rem;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 6px;
+  border: none;
+  transition: 0.2s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  background-color: #0f404a;
+}
