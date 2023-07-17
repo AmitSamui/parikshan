@@ -1,3 +1,6 @@
+
+const Dotenv = require("dotenv-webpack")
+
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const EslintWebpackPlugin = require("eslint-webpack-plugin");
@@ -43,6 +46,7 @@ module.exports = {
       template: "./public/index.html",
       favicon: "./public/favicon.ico",
     }),
+    new Dotenv()
     
   ],
   stats: "minimal",

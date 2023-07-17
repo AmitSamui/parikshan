@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { create as ipfsHttpClient } from "ipfs-http-client";
 
-const projectId = "2ShkJMWMZaMfqRHlTCOTMVMvCVQ";
-const projectSecretKey = "9c4b8d60a277952a96f40f175c2c239a";
+const projectId = process.env.REACT_APP_IPFS_API_KEY;
+const projectSecretKey = process.env.REACT_APP_IPFS_API_SECRET_KEY;
 const authorization = "Basic " + btoa(projectId + ":" + projectSecretKey);
 
 const ipfs = ipfsHttpClient({
@@ -34,7 +34,8 @@ const UploadFile = () => {
     e.preventDefault();
     try {
       const result = await ipfs.add(file);
-      const ipfsHash = result.cid["/"].toString();
+      const ipfsHash = result.cid.toString();
+      console.log(ipfsHash);
       setHash(ipfsHash);
     } catch (error) {
       console.log(error.message);
