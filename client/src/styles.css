@@ -17,15 +17,18 @@ html {
   --md: 768px;
   --sm: 576px;
 
-  --primary: #1D5764;
+  --primary: #1d5764;
   --secondary: #ececec;
-  --semi-secondary: #8AA7AE;
-  --card-background : #f1f1f1;
-  --text-color: #1D5764;
-  --text-dark: #0c3a45;
+  --semi-secondary: #8aa7ae;
+  --card-background: #f1f1f1;
+  --text-color: #1d5764;
+  --text-heading: #0c3a45;
+  --black: #000000;
 
-  --white: #FEFEFE;
-  --background: #FEFEFE;
+
+  --white: #fefefe;
+  --background: #fefefe;
+  --background-secondary: #D2DDE0;
   --success: #5cdd2c;
   --error: #ff4d4f;
   --warning: #faad14;
