@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./CandidateCertification.module.css";
+import UploadFile from "../UploadFile/UploadFile";
 
 const CandidateCertification = () => {
   return (
@@ -35,7 +36,9 @@ const CandidateCertification = () => {
           </div>
         </div>
         {/* after the contract is integrated */}
-        <div className={`${styles.uploadSection}`}>upload button</div>
+        <div className={`${styles.uploadSection}`}>
+          <UploadFile />
+        </div>
       </div>
     </div>
   );

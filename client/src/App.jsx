@@ -13,13 +13,10 @@ function App() {
           hello there
         
       </div> */}
-       <IconContext.Provider value={{style : {verticalAlign: "middle"}}} >
-       <div id="App">
-        
-       <RouterProvider router={router} />
-      
-    </div> 
-        
+      <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
+        <div id="App">
+          <RouterProvider router={router} />
+        </div>
       </IconContext.Provider>
     </EthProvider>
   );
