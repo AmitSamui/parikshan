@@ -113,7 +113,7 @@ const CandidateCertification = () => {
               <li>Upload the file first</li>
               <li>
                 After uploading the file, a hash will be generated. Copy the
-                IPFS HASH and paste it in the form.
+                IPFS HASH by clicking on the button below upload button.
               </li>
             </ul>
           </div>
