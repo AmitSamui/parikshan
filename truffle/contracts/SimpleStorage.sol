@@ -2,7 +2,7 @@
 
 pragma solidity >=0.5.0 <0.9.0;
 
-contract verifyCertificate {
+contract SimpleStorage {
     event FileCertified(
         address author,
         string fileHash,
