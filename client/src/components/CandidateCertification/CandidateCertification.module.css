@@ -33,12 +33,37 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-direction: column;
+  
+}
+
+.subHeading{
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-weight: 500;
+  font-size: var(--text-sm);
+}
+
+.subFormContainer{
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.subFormContainerTop{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
 }
 
 .formInput {
   padding: 0.8rem 1rem;
   width: 100%;
-  margin-right: 2rem;
+  margin-bottom: 1rem;
   border: 1.5px solid var(--secondary);
   border-radius: 6px;
   transition: 0.2s ease-in;
