@@ -1,7 +1,12 @@
 import { EthProvider } from "./contexts/EthContext";
 import { IconContext } from "react-icons";
-import { createBrowserRouter  , Routes , Route} from "react-router-dom";
-
+import {
+  createBrowserRouter,
+  Routes,
+  Router,
+  IndexRoute,
+  Route,
+} from "react-router-dom";
 import routes from "./utils/routes";
 import { RouterProvider } from "react-router-dom";
 import DashBoard from "./pages/DashBoard/DashBoard";
@@ -10,23 +15,8 @@ import CandidateCertification from "./components/CandidateCertification/Candidat
 import VerifyCertificate from "./components/verifyCertificate/VerifyCertificate";
 import AddIssuer from "./components/AddIssuer/AddIssuer";
 import RemoveIssuer from "./components/RemoveIssuer/RemoveIssuer";
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <DashBoard />,
-    children: [
-      {
-        index: true,
-        element: <Documents />,
-      },
-      {
-        path: "verify",
-        element: <VerifyCertificate />,
-      },
-     
-    ],
-  },
-]);
+import { Switch } from "antd";
+const router = createBrowserRouter(routes);
 
 function App() {
   return (
@@ -34,7 +24,14 @@ function App() {
       <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
         <div id="App">
           <RouterProvider router={router} />
-          
+          {/* <Router history={createBrowserHistory()}>
+            <Switch>
+              <Route path="/" element={<DashBoard />}>
+                <IndexRoute element={<Documents />} />
+                <Route path="/verify" element={<VerifyCertificate />}></Route>
+              </Route>
+            </Switch>
+          </Router> */}
         </div>
       </IconContext.Provider>
     </EthProvider>
