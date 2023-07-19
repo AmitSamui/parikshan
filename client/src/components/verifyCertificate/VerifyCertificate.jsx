@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 import styles from "./VerifyCertificate.module.css";
 import useEth from "../../contexts/EthContext/useEth";
 import { message } from "antd";
@@ -36,14 +36,13 @@ const VerifyCertificate = () => {
         .verifyFile(formValues.fileHash, formValues.candidateAddress)
         .call({ from: accounts[0] });
       console.log(verifyCertificate);
-      if(verifyCertificate[1]){
-        setDocumentInformations(verifyCertificate[0])
+      if (verifyCertificate[1]) {
+        setDocumentInformations(verifyCertificate[0]);
         message.success("file verified");
-      }else{
-        setDocumentInformations(null)
+      } else {
+        setDocumentInformations(null);
         message.error("File not certified");
       }
-      
     } catch (error) {
       console.log(error);
       message.error("you cant verify certificate");
@@ -54,7 +53,10 @@ const VerifyCertificate = () => {
     <div className={`${styles.verifyCertificate}`}>
       <div className={`${styles.section}`}>
         <div className={`${styles.heading}`}>Certificate Verification Form</div>
-        <form onSubmit={handleSubmitEvent} className={`${styles.formContainer}`}>
+        <form
+          onSubmit={handleSubmitEvent}
+          className={`${styles.formContainer}`}
+        >
           <input
             className={`${styles.formInput}`}
             name="candidateAddress"
@@ -82,11 +84,13 @@ const VerifyCertificate = () => {
           </button>
         </form>
         <div className={`${styles.documentContainer}`}>
-          {
-            documentInformations && (
-              <Document key={1} documentInformation = {documentInformations} />
-            )
-          }
+          {documentInformations && (
+            <Document
+              key={1}
+              documentInformation={documentInformations}
+              qrCodeEnable={false}
+            />
+          )}
         </div>
       </div>
       <div className={`${styles.sideContainer}`}>

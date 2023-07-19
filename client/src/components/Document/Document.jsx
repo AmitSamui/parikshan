@@ -3,12 +3,13 @@ import styles from "./Document.module.css";
 import { PiCertificateFill } from "react-icons/pi";
 import { HiDocumentDownload } from "react-icons/hi";
 
-const Document = ({ documentInformation }) => {
+const Document = ({ documentInformation, qrCodeEnable }) => {
   console.log(documentInformation);
-  const { candidate, issuer, fileName, fileHash, timestamp ,fileSize} = documentInformation;
+  const { candidate, issuer, fileName, fileHash, timestamp, fileSize } =
+    documentInformation;
   const { candidate_name, candidate_address } = candidate;
   const { issuer_address, issuer_institution, issuer_name } = issuer;
-  const issuerDate = new Date(parseInt(timestamp) * 1000)
+  const issuerDate = new Date(parseInt(timestamp) * 1000);
   // console.log(typeof(parseInt(timestamp)));
 
   return (
@@ -21,9 +22,7 @@ const Document = ({ documentInformation }) => {
         <div className={`${styles.documentDetails}`}>
           <div className={`${styles.information}`}>
             <p className={`${styles.infoTitle}`}>IPFS Hash:</p>
-            <p className={`${styles.info}`}>
-              {fileHash}
-            </p>
+            <p className={`${styles.info}`}>{fileHash}</p>
           </div>
 
           <div className={`${styles.information}`}>
@@ -43,7 +42,7 @@ const Document = ({ documentInformation }) => {
 
           <div className={`${styles.information}`}>
             <p className={`${styles.infoTitle}`}>Issued Date:</p>
-            <p className={`${styles.info}`}>{issuerDate.toDateString() }</p>
+            <p className={`${styles.info}`}>{issuerDate.toDateString()}</p>
           </div>
         </div>
         {/* <button>
@@ -56,7 +55,7 @@ const Document = ({ documentInformation }) => {
           Download File
         </button> */}
       </div>
-      <div className={`${styles.documentRight}`}>qr</div>
+      {qrCodeEnable && <div className={`${styles.documentRight}`}>qr</div>}
     </div>
   );
 };

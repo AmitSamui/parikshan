@@ -7,12 +7,13 @@ import VerifyCertificate from '../../components/verifyCertificate/VerifyCertific
 import AddIssuer from '../../components/AddIssuer/AddIssuer'
 import RemoveIssuer from '../../components/RemoveIssuer/RemoveIssuer'
 import UploadFile from '../../components/UploadFile/UploadFile'
+import { Outlet } from 'react-router-dom'
 
 const DashBoard = () => {
   return (
     <div className={`${styles.dashBoardContainer}`}>
       <SideBar/>
-      <VerifyCertificate />
+      <Outlet />
       {/* <CandidateCertification /> */}
       {/* <AddIssuer /> */}
     </div>

@@ -64,6 +64,19 @@
     align-items: start;
     background-color: var(--background-secondary);
   }
+
+  .documentContainer {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    padding: 2.5rem 2.5rem;
+  }
+  
   
   .ruleSection {
     /* background-color: red; */
