@@ -3,43 +3,50 @@ import styles from "./Document.module.css";
 import { PiCertificateFill } from "react-icons/pi";
 import { HiDocumentDownload } from "react-icons/hi";
 
-const Document = () => {
+const Document = ({ documentInformation }) => {
+  console.log(documentInformation);
+  const { candidate, issuer, fileName, fileHash, timestamp ,fileSize} = documentInformation;
+  const { candidate_name, candidate_address } = candidate;
+  const { issuer_address, issuer_institution, issuer_name } = issuer;
+  const issuerDate = new Date(parseInt(timestamp) * 1000)
+  // console.log(typeof(parseInt(timestamp)));
+
   return (
     <div className={`${styles.documentContainer}`}>
       <div className={`${styles.documentLeft}`}>
         <div className={`${styles.documentLeftTop}`}>
           <PiCertificateFill style={{ fontSize: "4rem" }} />
-          <p className={`${styles.documentHeader}`}>Certificate Name</p>
+          <p className={`${styles.documentHeader}`}>{fileName}</p>
         </div>
         <div className={`${styles.documentDetails}`}>
           <div className={`${styles.information}`}>
             <p className={`${styles.infoTitle}`}>IPFS Hash:</p>
             <p className={`${styles.info}`}>
-              HBLHBakblKJBlkjblKBnljLuloHO98Uo8goiP9oho8IUi0N
+              {fileHash}
             </p>
           </div>
 
           <div className={`${styles.information}`}>
             <p className={`${styles.infoTitle}`}>File size:</p>
-            <p className={`${styles.info}`}>21788</p>
+            <p className={`${styles.info}`}>{fileSize}</p>
           </div>
 
           <div className={`${styles.information}`}>
             <p className={`${styles.infoTitle}`}>Issued By:</p>
-            <p className={`${styles.info}`}>Amit Samui</p>
+            <p className={`${styles.info}`}>{issuer_name}</p>
           </div>
 
           <div className={`${styles.information}`}>
             <p className={`${styles.infoTitle}`}>Organisation:</p>
-            <p className={`${styles.info}`}>Major League Hacking</p>
+            <p className={`${styles.info}`}>{issuer_institution}</p>
           </div>
 
           <div className={`${styles.information}`}>
             <p className={`${styles.infoTitle}`}>Issued Date:</p>
-            <p className={`${styles.info}`}>Wed , 08 Dec 2021</p>
+            <p className={`${styles.info}`}>{issuerDate.toDateString() }</p>
           </div>
         </div>
-        <button>
+        {/* <button>
           <HiDocumentDownload
             style={{
               marginRight: "0.5rem",
@@ -47,7 +54,7 @@ const Document = () => {
             }}
           />
           Download File
-        </button>
+        </button> */}
       </div>
       <div className={`${styles.documentRight}`}>qr</div>
     </div>
