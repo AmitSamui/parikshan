@@ -3,7 +3,6 @@ import styles from "./AddIssuer.module.css";
 import { IoPersonAdd } from "react-icons/io5";
 import useEth from "../../contexts/EthContext/useEth";
 import { message } from "antd";
-import Web3 from "web3";
 
 const AddIssuer = () => {
   const [address, setAddress] = useState(null);
@@ -18,11 +17,6 @@ const AddIssuer = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      // const mapping = await contract.methods
-      //   .user_roles(accounts[0])
-      //   .call({ from: accounts[0] });
-      // console.log(mapping);
-
       const addingIssuer = await contract.methods
         .addIssuer(address)
         .send({ from: accounts[0] });

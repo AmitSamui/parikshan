@@ -1,23 +1,34 @@
-import React from 'react'
-import styles from "./Dashboard.module.css"
-import SideBar from '../../components/SideBar/SideBar'
-import Documents from '../../components/YourDocument/Documents'
-import CandidateCertification from '../../components/CandidateCertification/CandidateCertification'
-import VerifyCertificate from '../../components/verifyCertificate/VerifyCertificate'
-import AddIssuer from '../../components/AddIssuer/AddIssuer'
-import RemoveIssuer from '../../components/RemoveIssuer/RemoveIssuer'
-import UploadFile from '../../components/UploadFile/UploadFile'
-import { Outlet } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import styles from "./Dashboard.module.css";
+import useEth from "../../contexts/EthContext/useEth";
+import SideBar from "../../components/SideBar/SideBar";
+import { Outlet } from "react-router-dom";
 
 const DashBoard = () => {
+  const [role, setRole] = useState(null);
+
+  const {
+    state: { contract, accounts },
+  } = useEth();
+
+  useEffect(() => {
+    const getRole = async () => {
+      const mapping = await contract.methods
+        .user_roles(accounts[0])
+        .call({ from: accounts[0] });
+      setRole(mapping);
+      console.log(mapping);
+    };
+
+    getRole();
+  }, [contract]);
+
   return (
     <div className={`${styles.dashBoardContainer}`}>
-      <SideBar/>
+      <SideBar role={role} />
       <Outlet />
-      {/* <CandidateCertification /> */}
-      {/* <AddIssuer /> */}
     </div>
-  )
-}
+  );
+};
 
-export default DashBoard
+export default DashBoard;
