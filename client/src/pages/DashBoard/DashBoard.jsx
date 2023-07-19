@@ -12,7 +12,7 @@ const DashBoard = () => {
     <div className={`${styles.dashBoardContainer}`}>
       <SideBar/>
       {/* <Documents /> */}
-      <CandidateCertification />
+      <AddIssuer />
     </div>
   )
 }
