@@ -6,13 +6,14 @@ import CandidateCertification from '../../components/CandidateCertification/Cand
 import VerifyCertificate from '../../components/verifyCertificate/VerifyCertificate'
 import AddIssuer from '../../components/AddIssuer/AddIssuer'
 import RemoveIssuer from '../../components/RemoveIssuer/RemoveIssuer'
+import UploadFile from '../../components/UploadFile/UploadFile'
 
 const DashBoard = () => {
   return (
     <div className={`${styles.dashBoardContainer}`}>
       <SideBar/>
       {/* <Documents /> */}
-      <AddIssuer />
+      <CandidateCertification />
     </div>
   )
 }

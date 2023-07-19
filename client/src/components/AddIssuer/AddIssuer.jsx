@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./AddIssuer.module.css";
 import { IoPersonAdd } from "react-icons/io5";
 import useEth from "../../contexts/EthContext/useEth";
+import { message } from "antd";
 import Web3 from "web3";
 
 const AddIssuer = () => {
@@ -10,8 +11,6 @@ const AddIssuer = () => {
     state: { contract, accounts },
   } = useEth();
 
-  console.log(contract);
-
   const handleOnChange = (event) => {
     setAddress(event.target.value);
   };
@@ -19,15 +18,17 @@ const AddIssuer = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const mapping = await contract.methods
-        .user_roles(accounts[0])
-        .call({ from: accounts[0] });
-      console.log(mapping);
+      // const mapping = await contract.methods
+      //   .user_roles(accounts[0])
+      //   .call({ from: accounts[0] });
+      // console.log(mapping);
 
-      // const addingIssuer = await contract.methods.addIssuer(address).send({ from: accounts[0] });
-      // console.log(addingIssuer);
+      const addingIssuer = await contract.methods
+        .addIssuer(address)
+        .send({ from: accounts[0] });
+      message.success("issuer added");
     } catch (error) {
-      console.log(error);
+      message.error("you can't add issuer");
     }
   };
 

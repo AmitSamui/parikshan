@@ -1,17 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./RemoveIssuer.module.css";
+import useEth from "../../contexts/EthContext/useEth";
+import { message } from "antd";
 import { IoPersonRemove } from "react-icons/io5";
 
 const RemoveIssuer = () => {
+  const [address, setAddress] = useState(null);
+  const {
+    state: { contract, accounts },
+  } = useEth();
+
+  const handleOnChange = (event) => {
+    setAddress(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      // const mapping = await contract.methods
+      //   .user_roles(accounts[0])
+      //   .call({ from: accounts[0] });
+      // console.log(mapping);
+
+      const remove = await contract.methods
+        .removeIssuer(address)
+        .send({ from: accounts[0] });
+      message.success("issuer removed");
+    } catch (error) {
+      console.log(error);
+      message.error("The person is not issuer");
+    }
+  };
+
   return (
     <div className={`${styles.RemoveIssuer}`}>
       <div className={`${styles.section}`}>
         <div className={`${styles.heading}`}>Remove Issuer Form</div>
-        <div className={`${styles.formContainer}`}>
+        <form onSubmit={handleSubmit} className={`${styles.formContainer}`}>
           <input
             className={`${styles.formInput}`}
             name="IssuerAddress"
             type="text"
+            value={address}
+            onChange={handleOnChange}
             placeholder="Issuer's Address"
           />
           <button>
@@ -23,7 +54,7 @@ const RemoveIssuer = () => {
             />
             Remove Issuer
           </button>
-        </div>
+        </form>
         <div className={`${styles.documentContainer}`}></div>
       </div>
       <div className={`${styles.sideContainer}`}>

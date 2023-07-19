@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import styles from "./CandidateCertification.module.css";
+import useEth from "../../contexts/EthContext/useEth";
+import { message } from "antd";
 import UploadFile from "../UploadFile/UploadFile";
 
 const CandidateCertification = () => {
+  const {
+    state: { contract, accounts },
+  } = useEth();
+
   const [formValues, setFormValues] = useState({
     issuerName: "",
     issuerAddress: "",
@@ -17,8 +23,32 @@ const CandidateCertification = () => {
     setFormValues((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  const handleSubmitEvent = (event) => {
+  const handleSubmitEvent = async (event) => {
     event.preventDefault();
+    try {
+      // const mapping = await contract.methods
+      //   .user_roles(accounts[0])
+      //   .call({ from: accounts[0] });
+      // console.log(mapping);
+
+      const certifyCandidate = await contract.methods
+        .certifyFile(
+          formValues.candidateAddress,
+          formValues.candidateName,
+          20000,
+          formValues.issuerAddress,
+          formValues.issuerName,
+          formValues.ipfsHash,
+          formValues.certificateName,
+          "new certificate"
+        )
+        .send({ from: accounts[0] });
+      
+      message.success("file certified");
+    } catch (error) {
+      console.log(error);
+      message.error("you cant certify certificate");
+    }
     console.log(formValues);
   };
 
