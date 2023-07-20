@@ -41,10 +41,8 @@ const CandidateCertification = () => {
 
       message.success("file certified");
     } catch (error) {
-      console.log(error);
       message.error("you cant certify certificate");
     }
-    console.log(formValues);
   };
 
   return (

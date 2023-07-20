@@ -22,7 +22,6 @@ const RemoveIssuer = () => {
         .send({ from: accounts[0] });
       message.success("issuer removed");
     } catch (error) {
-      console.log(error);
       message.error("The person is not issuer");
     }
   };

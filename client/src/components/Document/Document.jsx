@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Document.module.css";
 import { PiCertificateFill } from "react-icons/pi";
-import { HiDocumentDownload } from "react-icons/hi";
+
 
 const Document = ({ documentInformation, qrCodeEnable }) => {
   console.log(documentInformation);

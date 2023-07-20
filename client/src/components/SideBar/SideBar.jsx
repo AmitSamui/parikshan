@@ -11,7 +11,7 @@ const SideBar = ({ role }) => {
   return (
     <div className={`${styles.sideBarContainer}`}>
       <div className={`${styles.headingDiv}`}>
-        <h3 className={`${styles.heading}`}>Certify</h3>
+        <h3 className={`${styles.heading}`}>Parikshan</h3>
         <PiSignOutBold className={`${styles.icon} `} />
       </div>
       <div className={`${styles.sidebarOptions} `}>
