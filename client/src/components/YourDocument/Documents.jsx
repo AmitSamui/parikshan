@@ -28,7 +28,7 @@ const Documents = () => {
 
   return (
     <div className={`${styles.dashboardContainer}`}>
-      <div className={`${styles.heading}`}>YourDocuments</div>
+      <div className={`${styles.heading}`}>Your Certificates</div>
       <div className={`${styles.documentsContainer}`}>
         {/* <Document documentInformation={}/> */}
         {documentInformations.length !== 0 &&

@@ -93,10 +93,10 @@ const VerifyCertificate = () => {
             <ul>
               <li>Enter the candidate's address</li>
               <li>Enter the File hash sent to you by the candidate</li>
-              <li>
+              {/* <li>
                 Alternatively, Switch to mobile and scan the qr code shared by
                 the candidate
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

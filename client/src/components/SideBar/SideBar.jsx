@@ -29,7 +29,7 @@ const SideBar = ({ role }) => {
             }`}
           >
             <HiDocumentText style={{ fontSize: "1rem" }} />
-            <p style={{ marginLeft: "1rem" }}> Your Documents</p>
+            <p style={{ marginLeft: "1rem" }}> Your Certificate</p>
           </div>
         </Link>
 

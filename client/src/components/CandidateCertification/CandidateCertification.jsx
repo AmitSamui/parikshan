@@ -38,7 +38,7 @@ const CandidateCertification = () => {
           "new certificate"
         )
         .send({ from: accounts[0] });
-      
+
       message.success("file certified");
     } catch (error) {
       console.log(error);
@@ -136,9 +136,10 @@ const CandidateCertification = () => {
           <div className={`${styles.rules}`}>
             <ul>
               <li>Upload the file first</li>
+              <li>After uploading the file, a hash will be generated.</li>
               <li>
-                After uploading the file, a hash will be generated. Copy the
-                IPFS HASH by clicking on the button below upload button.
+                Copy the IPFS HASH by clicking on the button below upload
+                button.
               </li>
             </ul>
           </div>
