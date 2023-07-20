@@ -25,13 +25,6 @@ const VerifyCertificate = () => {
   const handleSubmitEvent = async (event) => {
     event.preventDefault();
     try {
-      // const mapping = await contract.methods
-      //   .user_roles(accounts[0])
-      //   .call({ from: accounts[0] });
-      // console.log(mapping);
-
-      //QmVFWvnoSyGwpJUS3V4yFoDTvP9JAAT73CNuztTdHBxBUc
-
       const verifyCertificate = await contract.methods
         .verifyFile(formValues.fileHash, formValues.candidateAddress)
         .call({ from: accounts[0] });

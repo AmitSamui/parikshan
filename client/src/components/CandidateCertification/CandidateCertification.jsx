@@ -26,11 +26,6 @@ const CandidateCertification = () => {
   const handleSubmitEvent = async (event) => {
     event.preventDefault();
     try {
-      // const mapping = await contract.methods
-      //   .user_roles(accounts[0])
-      //   .call({ from: accounts[0] });
-      // console.log(mapping);
-
       const certifyCandidate = await contract.methods
         .certifyFile(
           formValues.candidateAddress,

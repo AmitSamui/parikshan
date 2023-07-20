@@ -17,11 +17,6 @@ const RemoveIssuer = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      // const mapping = await contract.methods
-      //   .user_roles(accounts[0])
-      //   .call({ from: accounts[0] });
-      // console.log(mapping);
-
       const remove = await contract.methods
         .removeIssuer(address)
         .send({ from: accounts[0] });

@@ -10,7 +10,6 @@ const Document = ({ documentInformation, qrCodeEnable }) => {
   const { candidate_name, candidate_address } = candidate;
   const { issuer_address, issuer_institution, issuer_name } = issuer;
   const issuerDate = new Date(parseInt(timestamp) * 1000);
-  // console.log(typeof(parseInt(timestamp)));
 
   return (
     <div className={`${styles.documentContainer}`}>

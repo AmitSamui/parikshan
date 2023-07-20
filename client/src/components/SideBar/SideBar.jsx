@@ -51,7 +51,7 @@ const SideBar = ({ role }) => {
           </div>
         </Link>
 
-        {(role === "admin") || (role === "issuer") || role === "" && (
+        {(role === "admin" || role === "issuer") && (
           <Link
             style={{
               textDecoration: "none",
@@ -71,7 +71,7 @@ const SideBar = ({ role }) => {
           </Link>
         )}
 
-        {role === "admin"  || role === "" && (
+        {role === "admin" && (
           <Link
             style={{
               textDecoration: "none",
@@ -91,7 +91,7 @@ const SideBar = ({ role }) => {
           </Link>
         )}
 
-        {role === "admin" || role === "" && (
+        {role === "admin" && (
           <Link
             style={{
               textDecoration: "none",
