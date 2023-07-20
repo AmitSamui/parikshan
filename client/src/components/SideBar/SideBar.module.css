@@ -3,7 +3,7 @@
   height: 100%;
   background-color: var(--primary);
   color: var(--secondary);
-  padding: 1.2rem 1.2rem;
+  padding: 0.8rem 1.2rem;
 }
 
 .headingDiv {
@@ -32,11 +32,12 @@
 
 .sidebarOptions {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: start;
   flex-direction: column;
   width: 100%;
   margin-top: 3rem;
+  
 }
 
 .options {

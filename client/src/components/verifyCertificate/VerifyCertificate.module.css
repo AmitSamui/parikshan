@@ -1,0 +1,105 @@
+.verifyCertificate {
+    width: 80%;
+    height: 100%;
+    background-color: var(--white);
+    color: var(--text-heading);
+    display: flex;
+    justify-content: start;
+    align-items: start;
+  }
+  
+  .heading {
+    font-size: var(--text-md);
+    font-weight: 700;
+    padding: 1.2rem 2.5rem;
+    /* background-color: var(--secondary); */
+  }
+  
+  .section {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+  }
+  
+  .formContainer {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 2.5rem 2.5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  
+  .formInput {
+    padding: 0.8rem 1rem;
+    width: 100%;
+    margin-right: 2rem;
+    border: 1.5px solid var(--secondary);
+    border-radius: 6px;
+    transition: 0.2s ease-in;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  
+  .formInput:focus {
+    outline: none !important;
+    border-color: var(--semi-secondary);
+  }
+  
+  .sideContainer {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: start;
+    background-color: var(--background-secondary);
+  }
+
+  .documentContainer {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    padding: 2.5rem 2.5rem;
+  }
+  
+  
+  .ruleSection {
+    /* background-color: red; */
+  }
+  
+  .ruleSection .sideHeading {
+    font-size: var(--text-md);
+    font-weight: 700;
+    padding: 0.8rem 1.2rem;
+    color: var(--black);
+    opacity: 0.5;
+    /* background-color: var(--secondary); */
+  }
+  
+  .rules {
+    padding: 0 2rem;
+    font-size: var(--text-sm);
+    color: var(--black);
+    opacity: 60%;
+  }
+  
+  .rules ul li {
+    margin-top: 0.8rem;
+    line-height: 1.5rem;
+  }
+  

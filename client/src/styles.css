@@ -2,6 +2,7 @@
 
 html {
   font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
 }
 
 :root {
@@ -16,11 +17,18 @@ html {
   --md: 768px;
   --sm: 576px;
 
-  --primary: #1D5764;
-  --secondary: #D2DDE0;
-  --semi-secondary: #8AA7AE;
-  --white: #FEFEFE;
-  --background: #FEFEFE;
+  --primary: #1d5764;
+  --secondary: #ececec;
+  --semi-secondary: #8aa7ae;
+  --card-background: #f1f1f1;
+  --text-color: #1d5764;
+  --text-heading: #0c3a45;
+  --black: #000000;
+
+
+  --white: #fefefe;
+  --background: #fefefe;
+  --background-secondary: #D2DDE0;
   --success: #5cdd2c;
   --error: #ff4d4f;
   --warning: #faad14;
