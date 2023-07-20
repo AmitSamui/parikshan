@@ -22,7 +22,6 @@ const RemoveIssuer = () => {
         .send({ from: accounts[0] });
       message.success("issuer removed");
     } catch (error) {
-      console.log(error);
       message.error("The person is not issuer");
     }
   };
@@ -57,7 +56,7 @@ const RemoveIssuer = () => {
           <div className={`${styles.sideHeading}`}>Remove Issuer</div>
           <div className={`${styles.rules}`}>
             <ul>
-              <li>Enter the person's address</li>
+              <li>Enter the Issuer's address</li>
               <li>Issuer Will be removed from the application</li>
             </ul>
           </div>

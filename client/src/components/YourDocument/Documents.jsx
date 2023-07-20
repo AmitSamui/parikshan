@@ -19,18 +19,16 @@ const Documents = () => {
           .call({ from: accounts[0] });
         setDocumentInformations(getCertificate);
       } catch (error) {
-        console.log(error);
+        console.error("Sorry, wasn't able to fetch the documents");
       }
     };
     getDocuments();
-    console.log(contract);
   }, [contract]);
 
   return (
     <div className={`${styles.dashboardContainer}`}>
-      <div className={`${styles.heading}`}>YourDocuments</div>
+      <div className={`${styles.heading}`}>Your Certificates</div>
       <div className={`${styles.documentsContainer}`}>
-        {/* <Document documentInformation={}/> */}
         {documentInformations.length !== 0 &&
           documentInformations.map((documentInformation, index) => {
             return (
@@ -38,9 +36,7 @@ const Documents = () => {
             );
           })}
 
-        {documentInformations.length === 0 && (
-          <NoDocument />
-        )}
+        {documentInformations.length === 0 && <NoDocument />}
       </div>
     </div>
   );

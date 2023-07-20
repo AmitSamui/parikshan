@@ -7,15 +7,14 @@ import { HiDocumentCheck } from "react-icons/hi2";
 
 const VerifyCertificate = () => {
   const [documentInformations, setDocumentInformations] = useState(null);
-
-  const {
-    state: { contract, accounts },
-  } = useEth();
-
   const [formValues, setFormValues] = useState({
     candidateAddress: "",
     fileHash: "",
   });
+
+  const {
+    state: { contract, accounts },
+  } = useEth();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -28,7 +27,6 @@ const VerifyCertificate = () => {
       const verifyCertificate = await contract.methods
         .verifyFile(formValues.fileHash, formValues.candidateAddress)
         .call({ from: accounts[0] });
-      console.log(verifyCertificate);
       if (verifyCertificate[1]) {
         setDocumentInformations(verifyCertificate[0]);
         message.success("file verified");
@@ -37,7 +35,6 @@ const VerifyCertificate = () => {
         message.error("File not certified");
       }
     } catch (error) {
-      console.log(error);
       message.error("you cant verify certificate");
     }
   };
@@ -93,10 +90,10 @@ const VerifyCertificate = () => {
             <ul>
               <li>Enter the candidate's address</li>
               <li>Enter the File hash sent to you by the candidate</li>
-              <li>
+              {/* <li>
                 Alternatively, Switch to mobile and scan the qr code shared by
                 the candidate
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

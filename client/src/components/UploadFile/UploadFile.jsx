@@ -1,19 +1,8 @@
 import React, { useState } from "react";
-import { create as ipfsHttpClient } from "ipfs-http-client";
 import { InboxOutlined } from "@ant-design/icons";
 import { message, Upload, Button } from "antd";
 import styles from "./UploadFile.module.css";
-
-const projectId = process.env.REACT_APP_IPFS_API_KEY;
-const projectSecretKey = process.env.REACT_APP_IPFS_API_SECRET_KEY;
-const authorization = "Basic " + btoa(projectId + ":" + projectSecretKey);
-
-const ipfs = ipfsHttpClient({
-  url: "https://ipfs.infura.io:5001/api/v0",
-  headers: {
-    authorization,
-  },
-});
+import ipfs from "./IPFSConfig";
 
 const UploadFile = () => {
   const [file, setFile] = useState(null);
@@ -92,8 +81,7 @@ const UploadFile = () => {
           navigator.clipboard.writeText(hash);
           message.success("successfully copied to clipboard");
         }}
-        disabled={!hash && fileList.length === 0}
-        loading={uploading}
+        disabled={!hash}
         style={{
           marginTop: "1rem",
           cursor: "copy",

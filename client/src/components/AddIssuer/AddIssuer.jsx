@@ -57,7 +57,7 @@ const AddIssuer = () => {
           <div className={`${styles.rules}`}>
             <ul>
               <li>Enter the person's address</li>
-              <li>Issuer Will be Added to the application</li>
+              <li>Person will be Added as an Issuer to the application</li>
             </ul>
           </div>
         </div>
