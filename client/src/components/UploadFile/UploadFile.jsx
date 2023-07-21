@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import { InboxOutlined } from "@ant-design/icons";
 import { message, Upload, Button } from "antd";
 import styles from "./UploadFile.module.css";
-import ipfs from "./IPFSConfig";
+import ipfs from "./IPFS";
+
+/*
+ ** Component usage
+ *  takes input from user i.e. ceritficate
+ *  upload the file to the ipfs and gets the hash
+
+ *  person can copy the hash to the clipboard
+ */
 
 const UploadFile = () => {
   const [file, setFile] = useState(null);

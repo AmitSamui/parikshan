@@ -5,6 +5,13 @@ import { message } from "antd";
 import Document from "../Document/Document";
 import { HiDocumentCheck } from "react-icons/hi2";
 
+/*
+ ** Component usage
+ *  takes input from user i.e. candidate address and ipfs hash of the certificate
+ *  sends it to the smart contract
+ *  smart contract verifies the certificate by checking the ipfs hash
+ */
+
 const VerifyCertificate = () => {
   const [documentInformations, setDocumentInformations] = useState(null);
   const [formValues, setFormValues] = useState({
@@ -12,6 +19,7 @@ const VerifyCertificate = () => {
     fileHash: "",
   });
 
+  // accessing contract object and account in use
   const {
     state: { contract, accounts },
   } = useEth();
@@ -21,6 +29,7 @@ const VerifyCertificate = () => {
     setFormValues((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
+  // submits the input values and fetches verdict from the contract
   const handleSubmitEvent = async (event) => {
     event.preventDefault();
     try {

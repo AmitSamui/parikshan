@@ -4,6 +4,12 @@ import useEth from "../../contexts/EthContext/useEth";
 import { message } from "antd";
 import { IoPersonRemove } from "react-icons/io5";
 
+/*
+ ** Component usage
+ *  takes input from admin i.e. issuer address
+ *  removes the address from the smart contract
+ */
+
 const RemoveIssuer = () => {
   const [address, setAddress] = useState(null);
   const {

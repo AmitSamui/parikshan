@@ -4,6 +4,13 @@ import useEth from "../../contexts/EthContext/useEth";
 import { message } from "antd";
 import UploadFile from "../UploadFile/UploadFile";
 
+/*
+ ** Component usage
+ *  takes input from issuer or admin i.e. candidate and issuer details and the uploaded file hash
+ *  add the certificate to the smart contract
+ *  
+ */
+
 const CandidateCertification = () => {
   const {
     state: { contract, accounts },
