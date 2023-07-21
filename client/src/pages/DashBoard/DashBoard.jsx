@@ -5,6 +5,7 @@ import SideBar from "../../components/SideBar/SideBar";
 import { Outlet } from "react-router-dom";
 
 const DashBoard = () => {
+  // store the role of the user
   const [role, setRole] = useState(null);
 
   const {
@@ -12,6 +13,7 @@ const DashBoard = () => {
   } = useEth();
 
   useEffect(() => {
+    // fetch the role of the user and store it in smart contract
     const getRole = async () => {
       const mapping = await contract.methods
         .user_roles(accounts[0])

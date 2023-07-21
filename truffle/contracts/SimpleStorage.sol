@@ -2,7 +2,7 @@
 
 pragma solidity >=0.5.0 <0.9.0;
 
-contract SimpleStorage {
+contract verifyCertificate {
     event FileCertified(
         address author,
         string fileHash,
@@ -14,7 +14,7 @@ contract SimpleStorage {
     // contract deployer (application owner)
     address owner;
 
-    // sturcture describing issuer
+    // declate a structured data that describes issuer
     struct CertificateIssuerStructure {
         address issuer_address;
         string issuer_institution;
@@ -38,15 +38,21 @@ contract SimpleStorage {
         string fileExtension;
     }
 
-    //mapping the file certificates by hash
-    mapping(address => mapping(string => FileCertificate)) fileCertificatesMap;
+    //mapping the file certificates by hash 
+    mapping(address => mapping(string => FileCertificate)) public fileCertificatesMap;
+    mapping (address => FileCertificate[]) userCertificate;
 
-    // mapping user roles [admin , isssuer , candidate]
     mapping(address => string) public user_roles;
+
+    // mapping (address => string) holder_certificate;
 
     constructor() {
         user_roles[msg.sender] = "admin";
         owner = msg.sender;
+    }
+
+    function getCertificates(address candidate_address) public view returns(FileCertificate[] memory){
+        return userCertificate[candidate_address];
     }
 
     function addIssuer(address issuer_address) public {
@@ -54,7 +60,7 @@ contract SimpleStorage {
         require(msg.sender == owner, "You can't add issuer");
         // check if the issuer is already present
         require(
-            keccak256(abi.encodePacked(user_roles[msg.sender])) !=
+            keccak256(abi.encodePacked(user_roles[issuer_address])) !=
                 keccak256(abi.encodePacked("issuer")),
             "issuer is already present"
         );
@@ -67,7 +73,7 @@ contract SimpleStorage {
         require(msg.sender == owner, "You can't add issuer");
         // check if the issuer is already present
         require(
-            keccak256(abi.encodePacked(user_roles[msg.sender])) ==
+            keccak256(abi.encodePacked(user_roles[issuer_address])) ==
                 keccak256(abi.encodePacked("issuer")),
             "The person is not issuer"
         );
@@ -75,6 +81,7 @@ contract SimpleStorage {
         user_roles[issuer_address] = "user";
     }
 
+    //function to certify the file
     //function that allows issuer to certify a file
     function certifyFile(
         address candidate_address,
@@ -112,6 +119,7 @@ contract SimpleStorage {
             fileExtension
         );
         fileCertificatesMap[candidate_address][fileHash] = newFileCertificate;
+        userCertificate[candidate_address].push(newFileCertificate);
         emit FileCertified(
             msg.sender,
             fileHash,
@@ -121,11 +129,12 @@ contract SimpleStorage {
         );
     }
 
-    // verification of certificate
-    function verifyFile(
-        string memory fileHash,
-        address candidate_address
-    ) public view returns (FileCertificate memory, bool) {
+    //function that allows users to verify if a file has been certified before
+    function verifyFile(string memory fileHash, address candidate_address)
+        public
+        view
+        returns (FileCertificate memory, bool)
+    {
         FileCertificate memory fileCertificate = fileCertificatesMap[
             candidate_address
         ][fileHash];
@@ -135,5 +144,7 @@ contract SimpleStorage {
         ).length != 0);
         return (fileCertificate, exists);
     }
-}
 
+    // create a function for current user to get the list of his files
+    // function getFilesOfCandidate( address candidate_address) public view returns()
+}

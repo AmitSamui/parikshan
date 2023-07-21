@@ -4,6 +4,12 @@ import { IoPersonAdd } from "react-icons/io5";
 import useEth from "../../contexts/EthContext/useEth";
 import { message } from "antd";
 
+/*
+ ** Component usage
+ *  takes input from admin i.e. issuer address
+ *  adds the address to the smart contract
+ */
+
 const AddIssuer = () => {
   const [address, setAddress] = useState(null);
   const {
