@@ -1,39 +1,70 @@
-# React Truffle Box
+![Alt text](readme_files/parikshan_banner.png)
 
-This box comes with everything you need to start using Truffle to write, compile, test, and deploy smart contracts, and interact with them from a React app.
+# PARIKSHAN
 
-## Installation
+**Parikshan** is a decentralized application (DApp) built on the blockchain that enables secure and transparent verification of certificates and credentials. The system leverages **blockchain technology** and **IPFS (InterPlanetary File System)** to ensure the integrity and immutability of certificate records.
 
-First ensure you are in an empty directory.
 
-Run the `unbox` command using 1 of 2 ways.
 
-```sh
-# Install Truffle globally and run `truffle unbox`
-$ npm install -g truffle
-$ truffle unbox react
-```
+## Features
 
-```sh
-# Alternatively, run `truffle unbox` via npx
-$ npx truffle unbox react
-```
+### 1. Add Issuer
 
-Start the react dev server.
+![add issuer](readme_files/add_issuer.png)
 
-```sh
-$ cd client
-$ npm start
-```
+-   Description: Allows administrators to add new issuers or certificate authorities to the system.
+-   Usage: Administrators can use this feature to onboard trusted issuers who have the authority to certify candidates and issue certificates.
 
-From there, follow the instructions on the hosted React app. It will walk you through using Truffle and Ganache to deploy the `SimpleStorage` contract, making calls to it, and sending transactions to change the contract's state.
+### 2. Remove Issuer
 
-## FAQ
+![remove issuer](readme_files/remove_issuer.png)
 
-- __How do I use this with Ganache (or any other network)?__
+-   Description: Provides the capability to remove an issuer from the system if they are no longer authorized to issue certificates.
+-   Usage: Administrators can utilize this feature to revoke the certification privileges of an issuer to maintain the credibility of the system.
 
-  The Truffle project is set to deploy to Ganache by default. If you'd like to change this, it's as easy as modifying the Truffle config file! Check out [our documentation on adding network configurations](https://trufflesuite.com/docs/truffle/reference/configuration/#networks). From there, you can run `truffle migrate` pointed to another network, restart the React dev server, and see the change take place.
+### 3. Certify Candidate
 
-- __Where can I find more resources?__
+![certify candidate](readme_files/candidate_certification.png)
 
-  This Box is a sweet combo of [Truffle](https://trufflesuite.com) and [Webpack](https://webpack.js.org). Either one would be a great place to start!
+-   Description: Enables authorized issuers to certify candidates and issue unique certificates to successful candidates.
+-   Usage: Authorized issuers can use this feature to certify the candidates who have completed specific courses, exams, or qualifications.
+
+### 4. Upload File to IPFS
+
+![upload](readme_files/upload.png)
+
+-   Description: Allows issuers to securely upload certificate files to IPFS, a decentralised and distributed file storage system.
+-   Usage: Issuer can upload candidate's digital certificate files to IPFS, ensuring the certificates are securely stored and immutable.
+
+### 5. Verify File
+
+![verify](readme_files/verify.png)
+
+-   Description: Provides a certificate verification mechanism that allows third parties to verify the authenticity of uploaded certificate files.
+-   Usage: Third-party verifiers, such as employers or educational institutions, can use this feature to validate the integrity and legitimacy of certificates.
+
+### 6. Your certificates
+
+![certificates](readme_files/your_certification.png)
+
+## How to Use
+
+Clone the Repository: `git clone https://github.com/AmitSamui/parikshan.git`
+There will be two separate folders infront of you **📁client** and **📁truffle**
+
+### Truffle and IPFS (Inter Planetary File System)
+1.  Configure Blockchain and IPFS: Set up the appropriate configurations for your chosen blockchain platform and IPFS node.
+2. For IPFS configuration , go to [Infura website](https://app.infura.io/) , create an account and generate the IPFS **project api key** and **api secret key** and save them for later.
+3.  Deploy Smart Contracts: Deploy the smart contracts to the blockchain network using `Truffle migrate` after doing necessary configuration in **📁truffle-config.js**.
+
+### Client
+1.  Install Dependencies: `npm install`.
+2. Add environment variables and add below variables:
+
+        REACT_APP_IPFS_API_KEY= your api key
+        REACT_APP_IPFS_API_SECRET_KEY=your secret key
+3. run `npm start`
+
+
+## 
+Copyright (c) 2023 Parikshan
