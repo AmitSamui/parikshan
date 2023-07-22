@@ -15,15 +15,14 @@ module.exports = {
     publicPath: "/", // The public path where the bundled assets will be served from
   },
   resolve: { extensions },
-  devServer: {
+  
     devServer: {
-      contentBase: path.resolve(__dirname, "public"), // Set the location of your public assets (index.html and other static files)
-      historyApiFallback: true, // Enable this to support React Router's nested routes (redirect to index.html for any unknown routes)
+    
       client: {
         overlay: false, // Hide overlay errors on the browser screen
       },
     },
-  },
+  
   module: {
     rules: [
       {
